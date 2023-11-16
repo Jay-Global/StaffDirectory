@@ -10,14 +10,13 @@ public partial class DetailPage : ContentPage
     public DetailPage(Employee employee)
     {
         InitializeComponent();
-        _databaseService = new DatabaseService(); // Ensure you have an instance of your DatabaseService
+        _databaseService = new DatabaseService(); // Instance of your DatabaseService
         _currentEmployee = employee;
         PopulateEmployeeDetails();
     }
 
     private void PopulateEmployeeDetails()
     {
-        // Now you can use _currentEmployee to set up your UI
         FirstNameEntry.Text = _currentEmployee.FirstName;
         LastNameEntry.Text = _currentEmployee.LastName;
         DepartmentEntry.Text = _currentEmployee.Department;
@@ -38,14 +37,14 @@ public partial class DetailPage : ContentPage
 
         await _databaseService.UpdateEmployeeAsync(_currentEmployee);
         await DisplayAlert("Success", "Contact updated successfully", "OK");
-        // Optional: Navigate back or refresh
+        await Navigation.PopAsync(); // Go back to the previous page
     }
 
     private async void OnDeleteContactClicked(object sender, EventArgs e)
     {
         await _databaseService.DeleteEmployeeAsync(_currentEmployee);
         await DisplayAlert("Success", "Contact deleted successfully", "OK");
-        // Optional: Navigate back or to another page
+        await Navigation.PopAsync(); // Go back to the previous page
     }
 }
 
