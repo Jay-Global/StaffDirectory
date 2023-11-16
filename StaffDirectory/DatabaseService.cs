@@ -1,7 +1,4 @@
-﻿using SQLite;
-using SQLitePCL;
-
-public class DatabaseService
+﻿public class DatabaseService
 {
     SQLiteAsyncConnection _database;
 

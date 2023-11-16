@@ -24,10 +24,12 @@ public partial class ListPage : ContentPage
             // Clear selection
             EmployeesListView.SelectedItem = null;
 
-            // Navigate to DetailPage with parameters
-            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?employeeId={selectedEmployee.Id}");
+            // Navigate to DetailPage with the employee object or ID
+            var detailPage = new DetailPage(selectedEmployee);
+            await Navigation.PushAsync(detailPage);
         }
     }
+
 
     protected override void OnAppearing()
     {

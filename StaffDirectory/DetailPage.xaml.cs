@@ -1,69 +1,54 @@
-﻿using System.Web;
-
-namespace StaffDirectory;
+﻿namespace StaffDirectory;
+using Microsoft.Maui.Controls;
 
 public partial class DetailPage : ContentPage
 {
     private DatabaseService _databaseService;
-    private Employee _employee;
+    private Employee _currentEmployee;
 
-    public DetailPage()
+    // Constructor that takes the employee or employeeId
+    public DetailPage(Employee employee)
     {
         InitializeComponent();
-        _databaseService = new DatabaseService();
+        _databaseService = new DatabaseService(); // Ensure you have an instance of your DatabaseService
+        _currentEmployee = employee;
+        PopulateEmployeeDetails();
     }
 
-    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+    private void PopulateEmployeeDetails()
     {
-        base.OnNavigatedTo(args);
-
-        var route = Shell.Current.CurrentState.Location.OriginalString;
-        var queryParams = HttpUtility.ParseQueryString(new Uri(route).Query);
-
-        if (queryParams["employeeId"] is string employeeIdString && int.TryParse(employeeIdString, out int employeeId))
-        {
-            Employee employee = await _databaseService.GetEmployeeByIdAsync(employeeId);
-            if (employee != null)
-            {
-                DisplayEmployeeDetails(_employee);
-            }
-            else
-            {
-                Console.WriteLine("Employee not found");
-                // Optionally, navigate back or show an error message
-            }
-        }
+        // Now you can use _currentEmployee to set up your UI
+        FirstNameEntry.Text = _currentEmployee.FirstName;
+        LastNameEntry.Text = _currentEmployee.LastName;
+        DepartmentEntry.Text = _currentEmployee.Department;
+        RoleEntry.Text = _currentEmployee.Role;
+        MobileEntry.Text = _currentEmployee.MobileNumber;
+        EmailEntry.Text = _currentEmployee.Email;
     }
 
-    private void DisplayEmployeeDetails(Employee employee)
+
+    private async void OnUpdateContactClicked(object sender, EventArgs e)
     {
-        FirstNameLabel.Text = employee.FirstName;
-        LastNameLabel.Text = employee.LastName;
-        DepartmentLabel.Text = employee.Department;
-        RoleLabel.Text = employee.Role;
-        MobileLabel.Text = employee.MobileNumber;
-        EmailLabel.Text = employee.Email;
+        _currentEmployee.FirstName = FirstNameEntry.Text;
+        _currentEmployee.LastName = LastNameEntry.Text;
+        _currentEmployee.Department = DepartmentEntry.Text;
+        _currentEmployee.Role = RoleEntry.Text;
+        _currentEmployee.MobileNumber = MobileEntry.Text;
+        _currentEmployee.Email = EmailEntry.Text;
+
+        await _databaseService.UpdateEmployeeAsync(_currentEmployee);
+        await DisplayAlert("Success", "Contact updated successfully", "OK");
+        // Optional: Navigate back or refresh
     }
 
-    private async void OnModifyClicked(object sender, EventArgs e)
+    private async void OnDeleteContactClicked(object sender, EventArgs e)
     {
-        //if (_employee != null)
-        //{
-        //    // Navigate to a page where you can modify the employee details
-        //    await Shell.Current.GoToAsync($"{nameof(ModifyEmployeePage)}?employeeId={_employee.Id}");
-        //}
-    }
-
-    private async void OnDeleteClicked(object sender, EventArgs e)
-    {
-        bool confirmed = await DisplayAlert("Delete Employee", "Are you sure?", "Yes", "No");
-        if (confirmed)
-        {
-            // Assume employee is the current employee object being displayed
-            await _databaseService.DeleteEmployeeAsync(_employee);
-            await Shell.Current.GoToAsync(".."); // Go back to the previous page using Shell navigation
-        }
+        await _databaseService.DeleteEmployeeAsync(_currentEmployee);
+        await DisplayAlert("Success", "Contact deleted successfully", "OK");
+        // Optional: Navigate back or to another page
     }
 }
+
+
 
 
