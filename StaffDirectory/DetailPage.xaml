@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StaffDirectory.DetailPage"
+             Title="DetailPage">
+    <StackLayout Padding="20">
+        <Label x:Name="FirstNameLabel" />
+        <Label x:Name="LastNameLabel" />
+        <Label x:Name="DepartmentLabel" />
+        <Label x:Name="RoleLabel" />
+        <Label x:Name="MobileLabel" />
+        <Label x:Name="EmailLabel" />
+        <Button Text="Modify Contact" Clicked="OnModifyClicked" />
+        <Button Text="Delete Contact" Clicked="OnDeleteClicked" />
+    </StackLayout>
+</ContentPage>

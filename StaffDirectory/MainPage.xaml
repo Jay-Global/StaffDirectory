@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StaffDirectory.MainPage">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Button Text="Add New Contact" Clicked="OnAddNewContactClicked" />
+        <Button Text="View Contacts" Clicked="OnViewContactsClicked" />
+    </StackLayout>
+
+</ContentPage>
+
