@@ -1,12 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StaffDirectory.MainPage">
+             x:Class="StaffDirectory.MainPage"
+             BackgroundColor="#941a1d">
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Button Text="Add New Contact" Clicked="OnAddNewContactClicked" />
-        <Button Text="View Contacts" Clicked="OnViewContactsClicked" />
-    </StackLayout>
+        <FlexLayout Direction="Column"
+                JustifyContent="SpaceBetween"
+                Wrap="NoWrap"
+                AlignContent="Center">
+        <FlexLayout Direction="Column"
+                    FlexLayout.Order="1"
+                    FlexLayout.Basis="40%">
+            <Border StrokeThickness="5"
+                    BackgroundColor="#595959"
+                    Stroke="#595959">
+                <Frame Background="white"
+                       CornerRadius="5"
+                       FlexLayout.Grow="1"
+                       FlexLayout.AlignSelf="Center">
+                    <Grid RowDefinitions="*,*"
+                          RowSpacing="35">
+                        <Image Source="roi_logo"
+                               WidthRequest="200"
+                               Grid.Row="0"/>
+                        <Label Text="Welcome to Staff Directory"
+                               TextColor="black"
+                               HorizontalTextAlignment="Center"
+                               FontSize="Title"
+                               VerticalOptions="Center"
+                               HeightRequest="100"
+                               Grid.Row="1">
+                            </Label>
+                     </Grid>
+                </Frame>
+            </Border>
+        </FlexLayout>
+        <VerticalStackLayout FlexLayout.Basis="60%"
+                             FlexLayout.Order="2"
+                             Margin="20,40"
+                             MaximumWidthRequest="600">
+            <Button Text="ADD NEW CONTACT" Clicked="OnAddNewContactClicked"
+                MaximumWidthRequest="180"
+                    HeightRequest="40"
+                    BorderWidth="2"
+                    BorderColor="#595959"
+                    CornerRadius="20"
+                    BackgroundColor="white"
+                    TextColor="black"
+                    FontSize="Small"
+                    FontAttributes="Bold"
+                    Margin="0,25,0,0"/>
+        <Button Text="VIEW CONTACTS" Clicked="OnViewContactsClicked"
+                MaximumWidthRequest="180"
+                    HeightRequest="40"
+                    BorderWidth="2"
+                    BorderColor="#595959"
+                    CornerRadius="20"
+                    BackgroundColor="white"
+                    TextColor="black"
+                    FontSize="Small"
+                    FontAttributes="Bold"
+                    Margin="0,50,0,0"/>
+            
+    </VerticalStackLayout>
+    </FlexLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 </ContentPage>
 

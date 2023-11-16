@@ -2,7 +2,29 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:StaffDirectory"
-       x:Class="StaffDirectory.AppShell">
+       x:Class="StaffDirectory.AppShell"
+       FlyoutBackdrop="#59595950" FlyoutWidth="400"
+        Shell.TabBarIsVisible="False"
+        Shell.TitleColor="black" Shell.ForegroundColor="#941a1d"
+        MinimumHeightRequest="200"
+
+        BackgroundColor="white"
+        FlyoutBackgroundColor="#941a1d">
+
+        <!--These are to try TARGET the shell menu button changin from hamburger to back arrow-->
+
+
+    <!--At the above, controls for title and menu icon colours, also for flyout controls, height not working
+        At Below, itemtemplate is to group menu items, images can be added if wanted, also here we modify text size etc-->
+
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding Title}" Margin="20" FontSize="Large"></Label>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
     <FlyoutItem Title="Home" Icon="icon_home.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
@@ -10,14 +32,23 @@
 
     <FlyoutItem Title="Add Employee" Icon="icon_add.png">
     <ShellContent Route="AddContactPage" ContentTemplate="{DataTemplate pages:AddContactPage}" />
-</FlyoutItem>
+    </FlyoutItem>
 
-<FlyoutItem Title="View Employees" Icon="icon_list.png">
-    <ShellContent Route="ListPage" ContentTemplate="{DataTemplate pages:ListPage}" />
-</FlyoutItem>
+    <FlyoutItem Title="View Employees" Icon="icon_list.png">
+        <ShellContent Route="ListPage" ContentTemplate="{DataTemplate pages:ListPage}" />
+    </FlyoutItem>
 
 
     <ShellContent Route="DetailPage" ContentTemplate="{DataTemplate pages:DetailPage}" />
+
+    <!--Modifies the flyout heaader, here where the logo is added-->
+
+   <Shell.FlyoutHeader>
+       <Grid HeightRequest="100" BackgroundColor="white">
+           <Image Source="roi_logo.png" WidthRequest="100" ></Image>
+       </Grid>
+   </Shell.FlyoutHeader>
+
 
 </Shell>
 

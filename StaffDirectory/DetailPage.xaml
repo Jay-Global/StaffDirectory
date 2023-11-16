@@ -3,14 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StaffDirectory.DetailPage"
              Title="DetailPage">
-    <StackLayout Padding="20">
-        <Label x:Name="FirstNameLabel" />
-        <Label x:Name="LastNameLabel" />
-        <Label x:Name="DepartmentLabel" />
-        <Label x:Name="RoleLabel" />
-        <Label x:Name="MobileLabel" />
-        <Label x:Name="EmailLabel" />
-        <Button Text="Modify Contact" Clicked="OnModifyClicked" />
-        <Button Text="Delete Contact" Clicked="OnDeleteClicked" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Use placeholders to indicate where the data will be displayed -->
+            <Label x:Name="FirstNameLabel" Text="{Binding FirstName}" FontSize="Medium" />
+            <Label x:Name="LastNameLabel" Text="{Binding LastName}" FontSize="Medium" />
+            <Label x:Name="DepartmentLabel" Text="{Binding Department}" FontSize="Medium" />
+            <Label x:Name="RoleLabel" Text="{Binding Role}" FontSize="Medium" />
+            <Label x:Name="MobileLabel" Text="{Binding MobileNumber}" FontSize="Medium" />
+            <Label x:Name="EmailLabel" Text="{Binding Email}" FontSize="Medium" />
+
+            <!-- Buttons for modifying and deleting the contact -->
+            <Button Text="Modify Contact" Clicked="OnModifyClicked" />
+            <Button Text="Delete Contact" Clicked="OnDeleteClicked" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
+

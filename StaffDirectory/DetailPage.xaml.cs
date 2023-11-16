@@ -25,7 +25,7 @@ public partial class DetailPage : ContentPage
             Employee employee = await _databaseService.GetEmployeeByIdAsync(employeeId);
             if (employee != null)
             {
-                DisplayEmployeeDetails(employee);
+                DisplayEmployeeDetails(_employee);
             }
             else
             {
@@ -47,8 +47,11 @@ public partial class DetailPage : ContentPage
 
     private async void OnModifyClicked(object sender, EventArgs e)
     {
-        // Implement the ModifyEmployeePage with existing employee data
-        // await Shell.Current.GoToAsync($"ModifyEmployeePage?employeeId={employee.Id}");
+        //if (_employee != null)
+        //{
+        //    // Navigate to a page where you can modify the employee details
+        //    await Shell.Current.GoToAsync($"{nameof(ModifyEmployeePage)}?employeeId={_employee.Id}");
+        //}
     }
 
     private async void OnDeleteClicked(object sender, EventArgs e)

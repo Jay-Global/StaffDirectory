@@ -2,14 +2,130 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StaffDirectory.AddContactPage"
-             Title="AddContactPage">
-    <StackLayout Padding="20">
-        <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
-        <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
-        <Entry x:Name="DepartmentEntry" Placeholder="Department" />
-        <Entry x:Name="RoleEntry" Placeholder="Role" />
-        <Entry x:Name="MobileEntry" Placeholder="Mobile Number" />
-        <Entry x:Name="EmailEntry" Placeholder="Email" />
-        <Button Text="Save Contact" Clicked="OnSaveContactClicked" />
-    </StackLayout>
+             Title="Add New Contact"
+             BackgroundColor="#941a1d">
+
+    <!--Flex layout is used for scalability, still some minor issues regarding mobile size screen-->
+
+    <FlexLayout Direction="Column"
+                JustifyContent="SpaceBetween"
+                Wrap="NoWrap">
+        <FlexLayout Direction="Column"
+                    FlexLayout.Order="1"
+                    FlexLayout.Basis="20%">
+            <Border StrokeThickness="5"
+            BackgroundColor="#595959"
+            Stroke="#595959">
+                <Frame Background="white"
+                CornerRadius="5"
+                MaximumHeightRequest="120">
+                    <Image Source="roi_logo"
+                    MaximumWidthRequest="130"
+                    MinimumWidthRequest="130"
+                    Margin="0"/>
+                </Frame>
+            </Border>
+        </FlexLayout>
+
+        <!--Scroll view is used to ensure that content once enough data can be scrolled-->
+
+        <ScrollView BackgroundColor="White"
+                    Margin="5"
+                    FlexLayout.Order="2"
+                    FlexLayout.Basis="100%">
+            <Grid FlexLayout.AlignSelf="Stretch">
+                <Image Aspect="AspectFill"
+                       Source="roi_wallpaper"
+                       Margin="10">
+                </Image>
+                <Grid Margin="30"
+                      RowDefinitions="auto,45,auto,45,auto,45,auto,45,auto,45,auto,45,auto"
+                      RowSpacing="5">
+    
+                    <Label Text="First Name"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,5"
+                           Grid.Row="0">
+                    </Label>
+                    <Entry Grid.Row="1"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Veronica"
+                           PlaceholderColor="Grey"
+                           x:Name="FirstNameEntry"
+                           />
+                    <Label Text="Last Name"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="2">
+                    </Label>
+                    <Entry Grid.Row="3"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Mars"
+                           PlaceholderColor="Grey"
+                           x:Name="LastNameEntry"/>
+                    <Label Text="Department"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="4">
+                    </Label>
+                    <Entry Grid.Row="5"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Department"
+                           x:Name="DepartmentEntry"/>
+                    <Label Text="Role"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="0,10"
+                           Grid.Row="6">
+                    </Label>
+                    <Entry Grid.Row="7"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Role"
+                           x:Name="RoleEntry"/>
+                    <Label Text="Mobile"
+                            TextColor="White"
+                            FontSize="Medium"
+                            Margin="0,10"
+                            Grid.Row="8">
+                    </Label>
+                    <Entry Grid.Row="9"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Mobile Number"
+                           x:Name="MobileEntry"
+                           Keyboard="Telephone"/>
+                    <Label Text="Email"
+                            TextColor="White"
+                            FontSize="Medium"
+                            Margin="0,10"
+                            Grid.Row="10">
+                    </Label>
+                    <Entry Grid.Row="11"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           Placeholder="Email"
+                           x:Name="EmailEntry"
+                           Keyboard="Email"/>
+                    <Button Grid.Row="12"
+                            Text="Add Contact"
+                            Clicked="OnSaveContactClicked"
+                            MaximumWidthRequest="120"
+                            HeightRequest="40"
+                            BorderWidth="2"
+                            BorderColor="#595959"
+                            CornerRadius="20"
+                            BackgroundColor="white"
+                            TextColor="black"
+                            Margin="0,100,0,50"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </FlexLayout>
 </ContentPage>
