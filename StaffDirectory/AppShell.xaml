@@ -38,6 +38,10 @@
         <ShellContent Route="ListPage" ContentTemplate="{DataTemplate pages:ListPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Settings" Icon="icon_settings.png">
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate pages:SettingsPage}" />
+    </FlyoutItem>
+
 
     <ShellContent Route="DetailPage" ContentTemplate="{DataTemplate pages:DetailPage}" />
 
