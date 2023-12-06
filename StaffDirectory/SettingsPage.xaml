@@ -3,20 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StaffDirectory.SettingsPage"
              Title="SettingsPage">
-    <VerticalStackLayout Padding="20">
-     <!-- Dark / Light Theme Toggle -->
+    <VerticalStackLayout Padding="30">
+ 
         <Label Text="Dark / Light Theme"/>
         <Switch IsToggled="{Binding IsDarkThemeEnabled}" Toggled="OnThemeToggled" />
 
-        <!-- Font Size Slider -->
         <Label Text="Adjust Font Size"/>
         <Slider Minimum="12" Maximum="24" Value="{Binding FontSize}" />
 
-        <!-- Brightness Slider -->
         <Label Text="Adjust Brightness (Not functional on all platforms)" />
-        <Slider Minimum="0" Maximum="1" Value="{Binding Brightness}" />
+        <Slider Minimum="0" Maximum="100" Value="{Binding Brightness}" />
 
-        <!-- Font Option Picker -->
         <Label Text="Select Font"/>
         <Picker Title="Choose Font" SelectedIndex="{Binding SelectedFontIndex}">
             <Picker.Items>

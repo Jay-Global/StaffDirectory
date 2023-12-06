@@ -9,7 +9,8 @@
 
     <FlexLayout Direction="Column"
                 JustifyContent="SpaceBetween"
-                Wrap="NoWrap">
+                Wrap="NoWrap"
+                VerticalOptions="Start">
         <FlexLayout Direction="Column"
                     FlexLayout.Order="1"
                     FlexLayout.Basis="20%">
@@ -123,7 +124,7 @@
                             CornerRadius="20"
                             BackgroundColor="white"
                             TextColor="black"
-                            Margin="0,100,0,50"/>
+                            Margin="0,75,0,50"/>
                 </Grid>
             </Grid>
         </ScrollView>

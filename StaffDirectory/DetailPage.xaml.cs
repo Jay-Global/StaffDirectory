@@ -10,7 +10,7 @@ public partial class DetailPage : ContentPage
     public DetailPage(Employee employee)
     {
         InitializeComponent();
-        _databaseService = new DatabaseService(); // Instance of your DatabaseService
+        _databaseService = new DatabaseService(); // Instance of DatabaseService
         _currentEmployee = employee;
         PopulateEmployeeDetails();
     }
